@@ -1,0 +1,29 @@
+<h1>商品一覧</h1>
+
+<%= link_to '価格の低い順', products_path(sort: :asc) %>
+<%= link_to '価格の高い順', products_path(sort: :desc) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>メーカー</th>
+      <th>価格</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.manufacturer %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to '編集', edit_product_path(product) %></td>
+        <td><%= link_to '削除', product, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新しい商品を追加する', new_product_path %>

@@ -1,0 +1,19 @@
+<h1>商品詳細</h1>
+
+<p>
+  <strong>名前:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>メーカー:</strong>
+  <%= @product.manufacturer %>
+</p>
+
+<p>
+  <strong>価格:</strong>
+  <%= @product.price %>
+</p>
+
+<%= link_to '編集', edit_product_path(@product) %> |
+<%= link_to '一覧に戻る', products_path %>
